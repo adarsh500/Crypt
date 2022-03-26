@@ -10,7 +10,7 @@ import { Cryptocurrencies, News } from '../components';
 const { Title } = Typography;
 
 const Homepage = () => {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(12);
   const globalStats = data?.data?.stats;
   console.log(data);
   if (isFetching) return "Loading...";
@@ -50,10 +50,10 @@ const Homepage = () => {
       </Row>
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies
+          Top Cryptocurrencies
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/cryptocurrency">Show More</Link>
+          <Link to="/cryptocurrencies">Show More</Link>
         </Title>
       </div>
       <Cryptocurrencies simplified />
@@ -63,7 +63,7 @@ const Homepage = () => {
           Latest Crypto News
         </Title>
         <Title level={3} className="show-more">
-          <Link to="/cryptocurrency">Show More</Link>
+          <Link to="/news">Show More</Link>
         </Title>
       </div>
       <News simplified />
