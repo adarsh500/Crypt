@@ -19,6 +19,7 @@ const News = ({ simplified }) => {
     count,
   });
 
+  if (isFetching) return "Loading..."
   if (!cryptoNews?.value) return "Loading...";
 
   console.log(cryptoNews);
