@@ -5,8 +5,6 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Link } from "react-router-dom";
 import { Cryptocurrencies, News } from '../components';
 
-//with this we can just use <Title></Title> instead of
-//<Typography.Title></Typography.Title>
 const { Title } = Typography;
 
 const Homepage = () => {

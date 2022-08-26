@@ -7,18 +7,16 @@ import { Col, Row, Typography } from 'antd';
 const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
-  console.log('line', Line);
   const coinPrice = [];
   const coinTimestamp = [];
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory.data.history[i].price);
-    coinTimestamp.push(
-      new Date(coinHistory.data.history[i].timestamp).toLocaleDateString()
-    );
   }
-
-  console.log(coinTimestamp)
+  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp * 1000).toLocaleDateString("en-US"));
+  }
+  console.log(coinHistory)
 
   const data = {
     labels: coinTimestamp,

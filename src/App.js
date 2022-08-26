@@ -1,7 +1,7 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { Layout, Typography, Space } from "antd";
-import "./App.css";
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Layout, Typography, Space } from 'antd';
+import './App.css';
 import {
   Navbar,
   Cryptocurrencies,
@@ -9,9 +9,7 @@ import {
   Exchanges,
   Homepage,
   News,
-} from "./components";
-
-
+} from './components';
 
 const App = () => {
   return (
@@ -42,7 +40,7 @@ const App = () => {
         <div className="footer">
           <Typography.Title
             level={5}
-            style={{ color: "white", textAlign: "center" }}
+            style={{ color: 'white', textAlign: 'center' }}
           >
             Crypt <br />
             All rights reserved
