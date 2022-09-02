@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 // import "antd/dist/antd.min.css";
 
-import store from "./app/store";
-import App from "./App";
+import store from './app/store';
+import App from './App';
 
 ReactDOM.render(
   <Router>
@@ -14,5 +15,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </Router>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
