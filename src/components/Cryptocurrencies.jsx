@@ -2,24 +2,38 @@ import React, { useState, useEffect } from 'react';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
 import {
-  Card, Row, Col, Input,
+  Card, Row, Col, Input, Avatar,
 } from 'antd';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
-const Shimmer = () => {
-  <Row gutter={[32, 32]} className="crypto-card-container">
-    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((index) => (
-      <Col xs={24} sm={12} lg={6} className="crypto-card" key={index}>
-        <Card
-          // key={crypto.uuid}
-          // title={`${crypto.rank}. ${crypto.name}`}
-          loading
-        />
-      </Col>
-    ))}
-  </Row>;
-};
+const { Search } = Input;
+
+const { Meta } = Card;
+
+function Shimmer() {
+  return (
+    <Row gutter={[32, 32]} className="crypto-card-container">
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((index) => (
+        <Col xs={24} sm={12} lg={6} className="crypto-card" key={index}>
+          <Card
+            style={{
+              width: 300,
+              marginTop: 16,
+            }}
+            loading
+          >
+            <Meta
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+              title="Card title"
+              description="This is the description"
+            />
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  );
+}
 
 // eslint-disable-next-line react/prop-types
 function Cryptocurrencies({ simplified }) {
@@ -37,16 +51,19 @@ function Cryptocurrencies({ simplified }) {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-  // if (isFetching) return <Shimmer />;
-  if (isFetching) return 'Loading...';
+  if (isFetching) return <Shimmer />;
+  // if (isFetching) return 'Loading...';
 
   return (
     <>
       {!simplified && (
         <div className="search-crypto">
-          <Input
-            placeholder="Search Cryptocurrency"
+          <Search
+            placeholder="input search text"
             onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              width: 300,
+            }}
           />
         </div>
       )}
@@ -70,14 +87,18 @@ function Cryptocurrencies({ simplified }) {
               >
                 <p>
                   Price:
+                  {' '}
                   {millify(crypto.price)}
+                  $
                 </p>
                 <p>
                   Market Cap:
+                  {' '}
                   {millify(crypto.marketCap)}
                 </p>
                 <p>
                   Daily Change:
+                  {' '}
                   {millify(crypto.change)}
                   %
                 </p>
